@@ -1,1 +1,260 @@
 "# hmm_training-inference" 
+
+README
+
+Files Included
+- DataSet.py: A class that can read in specific format of training/testing data.
+
+- HMM.py: The main HMM class that include prior probabilities and the needed functions for smoothing and training.
+
+- Viterbi.py: Viterbi class that could predict state sequences from testing observations.
+
+- TrainHMM.py: Train the different probability matrices using training data and plot observation likelihood wrt to iteration number.
+
+- RunViterbi.py: Train the HMM then make predictions.
+
+- map.png: The map for this project.
+
+- Figure_1.png: Observation likelihood vs iteration number for 50 iterations.
+
+- randomwalk.train.txt: 200 sequences of 200 timesteps for training. Sequences are separated with "."
+
+- randomwalk.test.txt: 200 sequences of 200 timesteps for testing Viterbi.
+
+- one_seq.test.txt: 1 sequence of 200 timesteps for testing Viterbi.
+
+Instructions
+
+To train the HMM only, do
+python TrainHMM.py randomwalk.train.txt
+
+To train the HMM and make predictions, do
+python RunViterbi.py randomwalk.train.txt randomwalk.test.txt
+
+To change iteration number or the number of sequences to read in,
+please follow Note 2. and Note 3.
+
+-----------------------------
+Note
+
+1.
+For the training and testing dataset, please follow the exact formats as the provided file.
+
+2.
+ReadFile function requires two inputs (numseq, flag).
+Numseq indicates the number of sequence in the file, or the number of sequence you wish to read in.
+Flag can only be either "train" or "test"; this will decide where to store the read sequences.
+
+3.
+The training process will seem to converge around 15-20 iterations, resulting in accuracy ~65%, but it will suddenly start optimizaing again from 35-40 iterations and converge around 50 iterations. This is the main reason why I did not implement a threshold.
+Accuracy is about 68% for 50 iterations, can reach 69% for 100 iterations.
+Please modifay HMM.py line 203, 205, 207 if anyone truly wish to test different number of iterations.
+
+4.
+I understand there are some limitations as to how the user can run this program, but it serves the assignment.
+Thank you!
+
+5.
+Below is a test record for all 200 test sequences using a 50-iter HMM.
+overall target percentage:
+68.26%
+test seq 0 misses 66
+test seq 1 misses 58
+test seq 2 misses 90
+test seq 3 misses 92
+test seq 4 misses 47
+test seq 5 misses 68
+test seq 6 misses 42
+test seq 7 misses 49
+test seq 8 misses 59
+test seq 9 misses 26
+test seq 10 misses 47
+test seq 11 misses 48
+test seq 12 misses 85
+test seq 13 misses 57
+test seq 14 misses 31
+test seq 15 misses 53
+test seq 16 misses 46
+test seq 17 misses 69
+test seq 18 misses 64
+test seq 19 misses 78
+test seq 20 misses 69
+test seq 21 misses 36
+test seq 22 misses 66
+test seq 23 misses 90
+test seq 24 misses 48
+test seq 25 misses 68
+test seq 26 misses 50
+test seq 27 misses 44
+test seq 28 misses 106
+test seq 29 misses 52
+test seq 30 misses 82
+test seq 31 misses 47
+test seq 32 misses 70
+test seq 33 misses 51
+test seq 34 misses 66
+test seq 35 misses 43
+test seq 36 misses 42
+test seq 37 misses 36
+test seq 38 misses 40
+test seq 39 misses 64
+test seq 40 misses 96
+test seq 41 misses 100
+test seq 42 misses 35
+test seq 43 misses 68
+test seq 44 misses 38
+test seq 45 misses 42
+test seq 46 misses 51
+test seq 47 misses 59
+test seq 48 misses 80
+test seq 49 misses 69
+test seq 50 misses 63
+test seq 51 misses 109
+test seq 52 misses 69
+test seq 53 misses 56
+test seq 54 misses 40
+test seq 55 misses 65
+test seq 56 misses 78
+test seq 57 misses 72
+test seq 58 misses 94
+test seq 59 misses 75
+test seq 60 misses 64
+test seq 61 misses 51
+test seq 62 misses 76
+test seq 63 misses 66
+test seq 64 misses 66
+test seq 65 misses 92
+test seq 66 misses 59
+test seq 67 misses 41
+test seq 68 misses 48
+test seq 69 misses 85
+test seq 70 misses 49
+test seq 71 misses 60
+test seq 72 misses 60
+test seq 73 misses 50
+test seq 74 misses 40
+test seq 75 misses 45
+test seq 76 misses 21
+test seq 77 misses 78
+test seq 78 misses 41
+test seq 79 misses 53
+test seq 80 misses 55
+test seq 81 misses 58
+test seq 82 misses 78
+test seq 83 misses 63
+test seq 84 misses 61
+test seq 85 misses 59
+test seq 86 misses 66
+test seq 87 misses 47
+test seq 88 misses 81
+test seq 89 misses 39
+test seq 90 misses 123
+test seq 91 misses 67
+test seq 92 misses 39
+test seq 93 misses 56
+test seq 94 misses 63
+test seq 95 misses 40
+test seq 96 misses 69
+test seq 97 misses 82
+test seq 98 misses 53
+test seq 99 misses 60
+test seq 100 misses 80
+test seq 101 misses 62
+test seq 102 misses 79
+test seq 103 misses 76
+test seq 104 misses 53
+test seq 105 misses 73
+test seq 106 misses 40
+test seq 107 misses 76
+test seq 108 misses 40
+test seq 109 misses 51
+test seq 110 misses 60
+test seq 111 misses 58
+test seq 112 misses 72
+test seq 113 misses 70
+test seq 114 misses 26
+test seq 115 misses 48
+test seq 116 misses 52
+test seq 117 misses 47
+test seq 118 misses 66
+test seq 119 misses 61
+test seq 120 misses 73
+test seq 121 misses 76
+test seq 122 misses 48
+test seq 123 misses 65
+test seq 124 misses 65
+test seq 125 misses 55
+test seq 126 misses 82
+test seq 127 misses 71
+test seq 128 misses 34
+test seq 129 misses 44
+test seq 130 misses 42
+test seq 131 misses 68
+test seq 132 misses 88
+test seq 133 misses 105
+test seq 134 misses 99
+test seq 135 misses 78
+test seq 136 misses 112
+test seq 137 misses 80
+test seq 138 misses 52
+test seq 139 misses 91
+test seq 140 misses 65
+test seq 141 misses 51
+test seq 142 misses 79
+test seq 143 misses 55
+test seq 144 misses 33
+test seq 145 misses 43
+test seq 146 misses 68
+test seq 147 misses 44
+test seq 148 misses 98
+test seq 149 misses 40
+test seq 150 misses 48
+test seq 151 misses 52
+test seq 152 misses 76
+test seq 153 misses 100
+test seq 154 misses 59
+test seq 155 misses 62
+test seq 156 misses 120
+test seq 157 misses 82
+test seq 158 misses 86
+test seq 159 misses 96
+test seq 160 misses 76
+test seq 161 misses 56
+test seq 162 misses 73
+test seq 163 misses 97
+test seq 164 misses 59
+test seq 165 misses 37
+test seq 166 misses 45
+test seq 167 misses 57
+test seq 168 misses 58
+test seq 169 misses 73
+test seq 170 misses 70
+test seq 171 misses 61
+test seq 172 misses 61
+test seq 173 misses 55
+test seq 174 misses 67
+test seq 175 misses 75
+test seq 176 misses 85
+test seq 177 misses 43
+test seq 178 misses 104
+test seq 179 misses 67
+test seq 180 misses 63
+test seq 181 misses 65
+test seq 182 misses 43
+test seq 183 misses 71
+test seq 184 misses 66
+test seq 185 misses 63
+test seq 186 misses 103
+test seq 187 misses 83
+test seq 188 misses 68
+test seq 189 misses 80
+test seq 190 misses 58
+test seq 191 misses 43
+test seq 192 misses 55
+test seq 193 misses 97
+test seq 194 misses 59
+test seq 195 misses 43
+test seq 196 misses 49
+test seq 197 misses 54
+test seq 198 misses 84
+test seq 199 misses 47
