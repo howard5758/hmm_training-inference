@@ -2,7 +2,9 @@
 
 README
 
-Files Included
+This project corresponds to problem 4 in the pdf.
+
+Files Included In Code
 - DataSet.py: A class that can read in specific format of training/testing data.
 
 - HMM.py: The main HMM class that include prior probabilities and the needed functions for smoothing and training.
