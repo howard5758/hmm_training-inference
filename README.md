@@ -27,11 +27,13 @@ Files Included In Code
 
 Instructions
 
-To train the HMM only, do
-python TrainHMM.py randomwalk.train.txt
+To train the HMM only:
 
-To train the HMM and make predictions, do
-python RunViterbi.py randomwalk.train.txt randomwalk.test.txt
+$python TrainHMM.py randomwalk.train.txt
+
+To train the HMM and make predictions:
+
+$python RunViterbi.py randomwalk.train.txt randomwalk.test.txt
 
 To change iteration number or the number of sequences to read in,
 please follow Note 2. and Note 3.
